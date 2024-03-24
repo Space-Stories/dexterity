@@ -30,7 +30,7 @@ public sealed class SharedRevolutionarySystem : EntitySystem
     /// When the mindshield is implanted in the rev it will popup saying they were deconverted. In Head Revs it will remove the mindshield component.
     /// </summary>
     private void MindShieldImplanted(EntityUid uid, MindShieldComponent comp, MapInitEvent init)
-    {
+    { var ev = new MindShieldImplantedEvent(uid, comp); RaiseLocalEvent(uid, ref ev, true); // SPACE STORIES
         if (HasComp<HeadRevolutionaryComponent>(uid))
         {
             RemCompDeferred<MindShieldComponent>(uid);
@@ -107,3 +107,6 @@ public sealed class SharedRevolutionarySystem : EntitySystem
         }
     }
 }
+
+[ByRefEvent]
+public readonly record struct MindShieldImplantedEvent(EntityUid Uid, MindShieldComponent MindShield);

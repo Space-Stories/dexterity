@@ -13,7 +13,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class BureaucraticErrorRule : StationEventSystem<BureaucraticErrorRuleComponent>
 {
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;
-
+    private readonly HashSet<string> _ignoredJobs = ["JediNt"];
     protected override void Started(EntityUid uid, BureaucraticErrorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
@@ -31,6 +31,8 @@ public sealed class BureaucraticErrorRule : StationEventSystem<BureaucraticError
         if (RobustRandom.Prob(0.25f))
         {
             var chosenJob = RobustRandom.PickAndTake(jobList);
+            if (_ignoredJobs.Contains(chosenJob))
+                return;
             _stationJobs.MakeJobUnlimited(chosenStation.Value, chosenJob); // INFINITE chaos.
             foreach (var job in jobList)
             {
@@ -49,6 +51,8 @@ public sealed class BureaucraticErrorRule : StationEventSystem<BureaucraticError
             {
                 var chosenJob = RobustRandom.PickAndTake(jobList);
                 if (_stationJobs.IsJobUnlimited(chosenStation.Value, chosenJob))
+                    continue;
+                if (_ignoredJobs.Contains(chosenJob))
                     continue;
 
                 _stationJobs.TryAdjustJobSlot(chosenStation.Value, chosenJob, RobustRandom.Next(-3, 6), clamp: true);

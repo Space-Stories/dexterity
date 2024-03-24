@@ -5,10 +5,12 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
+using Content.Server.Chat.Managers;
 using Robust.Shared.Random;
 using Content.Shared.Popups;
 using Content.Server.Store.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Chat;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -22,6 +24,7 @@ public sealed class PickRandomJobPersonSystem : EntitySystem
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     public override void Initialize()
     {

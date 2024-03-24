@@ -1,0 +1,7 @@
+- type: radioChannel
+  id: Empire
+  name: Империя
+  keycode: 'г' # Stories-Localization
+  frequency: 1984
+  color: "#1b67a5"
+  longRange: true

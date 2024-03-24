@@ -10,7 +10,7 @@
       maxForce: 1000
       frequency: 5
       dampingRatio: 4
-      lineColor: null
+      lineColor: "#FF000000"
     - type: Tag
       tags:
         - HideContextMenu
