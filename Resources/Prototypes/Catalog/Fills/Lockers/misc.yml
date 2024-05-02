@@ -75,6 +75,48 @@
       - id: NitrogenTankFilled
         prob: 0.20
         orGroup: EmergencyTankOrRegularTank
+      - id: BoxMRE
+        prob: 0.1
+      - id: ToolboxEmergencyFilled
+        prob: 0.05
+
+- type: entity
+  id: ClosetEmergencyN2FancyFilledRandom
+  parent: ClosetEmergencyN2Fancy
+  suffix: Fancy, Filled, Random
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskBreath
+      - id: EmergencyNitrogenTankFilled
+        prob: 0.80
+        orGroup: EmergencyTankOrRegularTank
+      - id: NitrogenTankFilled
+        prob: 0.20
+        orGroup: EmergencyTankOrRegularTank
+      - id: BoxMRE
+        prob: 0.1
+      - id: ToolboxEmergencyFilled
+        prob: 0.05
+        
+- type: entity
+  id: ClosetWallEmergencyN2FilledRandom
+  parent: ClosetWallEmergencyN2
+  suffix: Filled, Random
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingMaskBreath
+      - id: EmergencyNitrogenTankFilled
+        prob: 0.80
+        orGroup: EmergencyTankOrRegularTank
+      - id: NitrogenTankFilled
+        prob: 0.20
+        orGroup: EmergencyTankOrRegularTank
+      - id: BoxMRE
+        prob: 0.1
+      - id: ToolboxEmergencyFilled
+        prob: 0.05
 
 - type: entity
   id: ClosetFireFilled
@@ -89,6 +131,7 @@
         - id: OxygenTankFilled
         - id: FireExtinguisher
           prob: 0.25
+
 - type: entity
   id: ClosetWallFireFilledRandom
   parent: ClosetWallFire
@@ -102,6 +145,7 @@
         - id: OxygenTankFilled
         - id: FireExtinguisher
           prob: 0.25
+
 - type: entity
   id: ClosetMaintenanceFilledRandom
   suffix: Filled, Random
