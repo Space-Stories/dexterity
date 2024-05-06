@@ -1,45 +1,13 @@
 - type: statusIcon
-  id: ZombieFaction
+  id: ShadowlingFaction
   priority: 11
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Zombie
+    sprite: /Textures/Stories/!TexturePacks/Shadowling/Interface/Misc/job_icons.rsi
+    state: Shadowlings
 
 - type: statusIcon
-  id: InitialInfectedFaction
+  id: ShadowlingThrallFaction
   priority: 11
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: InitialInfected
-
-- type: statusIcon
-  id: RevolutionaryFaction
-  priority: 11
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Revolutionary
-
-- type: statusIcon
-  id: HeadRevolutionaryFaction
-  priority: 11
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: HeadRevolutionary
-
-- type: statusIcon
-  id: MindShieldIcon
-  priority: 2
-  locationPreference: Right
-  layer: Mod
-  isShaded: true
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: MindShield
-
-- type: statusIcon
-  id: SyndicateFaction
-  priority: 0
-  locationPreference: Left
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Syndicate
+    sprite: /Textures/Stories/!TexturePacks/Shadowling/Interface/Misc/job_icons.rsi
+    state: ShadowlingsSlave

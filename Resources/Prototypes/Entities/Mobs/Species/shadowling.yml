@@ -1,0 +1,147 @@
+- type: entity
+  save: false
+  name: Тенеморф
+  parent:
+  - BaseMob
+  - MobDamageable
+  id: BaseMobShadowling
+  abstract: true
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 240
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  - type: InventorySlots
+  - type: NoSlip
+  - type: NightVision
+    state: Full
+  - type: MovementAlwaysTouching
+  - type: CombatMode
+  - type: InputMover
+  - type: MobMover
+  - type: Hands
+  - type: Tool
+    speed: 5
+    qualities:
+      - Prying
+  - type: Prying
+    pryPowered: !type:Bool
+      true
+    force: !type:Bool
+      true
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: Shadowling
+    actions:
+      # ActionShadowlingHatch: 0
+      ActionShadowlingShadowWalk: 0
+      ActionShadowlingGlare: 0
+      ActionShadowlingVeil: 0
+      ActionShadowlingIcyVeins: 0
+      ActionShadowlingCollectiveMind: 0
+      ActionShadowlingRapidReHatch: 0
+      ActionShadowlingEnthrall: 0
+      ActionShadowlingBlindnessSmoke: 5
+      ActionShadowlingSonicScreech: 3
+      ActionShadowlingBlackRecuperation: 9
+      ActionShadowlingAscendance: 15
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - SlowedDown
+    - Stutter
+    - Electrocution
+    - ForcedSleep
+    - TemporaryBlindness
+    - SlurredSpeech
+    - RatvarianLanguage
+    - PressureImmunity
+    - Muted
+    - StaminaModifier
+  - type: TypingIndicator
+    proto: holo
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: ShadowPortal
+        amount: 1
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Critical
+      120: Dead
+  - type: Flashable
+  - type: Blindable
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: StandingState
+    canCrawl: true
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Stories/!TexturePacks/Shadowling/Mobs/Demons/shadowling.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: shadowling_s
+  - type: Body
+    prototype: Shadowling
+    requiredLegs: 2
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - ShadowlingMind
+  - type: ActiveRadio
+    channels:
+    - ShadowlingMind
+  - type: Vocal
+    sounds:
+      Male: UnsexedShadowling
+      Female: UnsexedShadowling
+      Unsexed: UnsexedShadowling
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Shadowling
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.7
+    baseSprintSpeed : 4.5
+  - type: Puller
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: radioChannel
+  id: ShadowlingMind
+  name: Тенеморф
+  frequency: 98767
+  keycode: 'ш'
+  color: "#8b0000"
+  longRange: true

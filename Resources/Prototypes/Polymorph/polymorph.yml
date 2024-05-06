@@ -1,0 +1,94 @@
+- type: polymorph
+  id: ShadowlingWalk
+  configuration:
+    entity: ShadowlingWalk
+    forced: true
+    duration: 5
+    inventory: None
+    transferName: true
+    transferDamage: false
+    revertOnCrit: true
+    revertOnDeath: true
+
+- type: polymorph
+  id: Shadowling
+  configuration:
+    entity: MobShadowling
+    forced: true
+    inventory: Drop
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: polymorph
+  id: Ascended
+  configuration:
+    entity: MobAscendance
+    forced: true
+    inventory: Drop
+    allowRepeatedMorphs: true
+    revertOnCrit: false
+    revertOnDeath: false
+
+- type: entity
+  id: ShadowlingWalk
+  name: тенеморф
+  description: Чувствительное к свету инопланетное существо из космоса.
+  components:
+  - type: NightVision
+    state: Full
+  - type: StatusIcon
+  - type: Sprite
+    drawdepth: Ghosts
+    noRot: true
+    sprite: Stories/!TexturePacks/Shadowling/Mobs/Demons/shadowling.rsi
+    layers:
+      - state: shadowling_ghost
+  # - type: Shadowling
+  #   actions: {}
+  - type: MindContainer
+  - type: InputMover
+  - type: MobMover
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 15
+    baseSprintSpeed: 15
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 80
+        mask:
+        - GhostImpassable
+  - type: MovementIgnoreGravity
+  - type: Damageable
+    damageContainer: Biological
+  - type: Examiner
+  - type: NoSlip
+  - type: Actions
+  - type: TTS # Stories-TTS
+    voice: twitch
+  - type: Eye
+    drawFov: false
+    visMask:
+      - Normal
+      - Ghost
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: DoAfter
+  - type: Alerts
+  - type: PointLight
+    color: Red
+    radius: 1.5
+    softness: 10
+    energy: 5
+  - type: Visibility
+    layer: 2 #ghost vis layer
+  - type: Speech
+    speechVerb: Ghost
