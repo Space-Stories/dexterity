@@ -1,0 +1,16 @@
+- type: entity
+  parent: BasePDA
+  id: JediNtPDA
+  name: КПК стража клинка
+  description: Черный, чтобы скрыть повреждения от неправильного использования светового меча.
+  components:
+  - type: Tag
+    tags:
+      - ForceRecallEquipment
+  - type: Pda
+    id: JediNtIDCard
+    state: pda-bartender
+  - type: PdaBorderColor
+    borderColor: "#262626"
+  - type: Icon
+    state: pda-bartender
