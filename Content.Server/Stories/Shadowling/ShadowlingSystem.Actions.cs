@@ -160,7 +160,7 @@ public sealed partial class ShadowlingSystem
         var announcementString = "Сканерами дальнего действия было зафиксировано превознесение тенеморфа, к вам будет отправлен экстренный эвакуационный шаттл.";
 
         _chat.DispatchGlobalAnnouncement(announcementString, playSound: true, colorOverride: Color.Red);
-        _audio.PlayGlobal("/Audio/Stories/Misc/tear_of_veil.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+        _audio.PlayGlobal("/Audio/_Stories/Misc/tear_of_veil.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         _roundEnd.RequestRoundEnd(TimeSpan.FromMinutes(3), ent, false);
 
         args.Handled = true;
